@@ -1,0 +1,452 @@
+
+
+
+
+SCOUTS
+pulse: 3-away, greet enemies
+remove cap
+rally against emp's
+
+
+
+Greg
+	- transfer energy from scouts to tanks when tanks need it (and when archons need it, for that matter)
+	- fix isAdjacentTo to return true when they occupie the same square
+	- heal more liberaly
+	- be more liberal about healing fighters (they will also be healing tanks)
+	- make sure we always have tanks
+	- put in a thing to detect if we're split up
+
+
+
+
+	- flee EMPs!
+	- randonly turn better
+	
+	
+	- better air-force
+		- when to make EMPs
+	
+	
+
+
+
+
+
+==== What We Need To Do ====
+
+
+    - make the scout cloud adaptive
+        - if it encounters no defense, should make EMP
+    	: each scout will be looking out for a set of criterion to be met, including:
+    		- I see an archon
+    		- I'm on the front lines (no friendlies between me and the archon)
+    		- the ratio of goods to bads to high (including SAMs as bads)
+    		- then
+    			- designate an EMP (well, this should be part of the criterion too)
+    		- write EMP code to get closer to archon
+    		- write scout healing code to heal EMP
+    		
+	- flee when we see an EMP!
+		- ours or theirs
+        
+	- make the scout cloud tell us whether we would approach or avoid an enemy
+		- if it is a single guy (or 2), we should aggresively eliminate it
+		- if it is a crap load of tanks, we should stay away
+	- refine criterion for entering attack mode
+		- right now it's 1 archon, or 1 tank, or 3 soldiers, or 1 EMP, or 1 Scout,
+			- there is problem with the 1 scout, we can sortof get pestered with scouts, and not advance
+			
+	- need to code a method of "approaching" the enemy (not to be used in all cases)
+	- need to code a method of "avoiding" the enemy
+    
+    - any archon needs to be able to call for attack mode..
+        - need to make sure there aren't lots of leader exchanges when all archons
+            are trying to call for attack mode
+
+    
+    - we should not hit ourselves with tanks when we don't need to
+    - refine attacking with tanks,
+    	- they should hit better...
+    	- they should use weights to decide where to go
+    		- what are the weights?
+    			- how close are we to the leader?
+    			- how much damage will we take?
+    			- how much damage can we deliver?
+    			- can we kill a certain unit?
+    			
+    - better inter-tank healing (maybe have them call for help)
+    	- problem is that they can't see very well
+			
+	- we should refine the building strategy
+	    - we should be growing our army when we have more upgrades
+	    - don't build tanks early enough: see game 653.rms
+	    
+    - make scouts focus-fire
+    
+	- eliminate bug where scouts appear stuck on the edge (has to do with waiting for energy to go below 0.5 of max)
+    
+    
+    - archons tend to get spread out into a line as they walk
+    
+    
+    - if have most of the upgrades, we should wait it out
+		- go to a corner
+		- build a crap load of tanks
+		- have a good emp defense
+
+
+
+
+============================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- emp defense with roaming archons
+    vs
+        emp offense camping
+
+    
+- see how well a "sideways" EMP attack works against the huns
+
+
+- areas for improvement to our strategy:
+    - make the scout cloud adaptive
+        - if it encounters no defense, should make EMP
+        - if it encounters a large ground defense, should not approach
+    - if a realScout can't move forward, then go back (bug: they keep trying to move off map)
+    - make scouts focus-fire
+    - don't go after camping armies
+        - this should really be adaptive (scouts saying whether it's ok to attack)
+    - archons tend to get spread out into a line as they walk
+    - use adaptive EMP defense/offense
+        - defense at first,
+            but if it sees that they have no defense,
+            it becomes an offense
+    - better inter-tank healing (maybe have them call for help)
+    - we should be growing our army when we have more upgrades
+    - when tanks are in attack mode.. they should move around differently,
+        don't get so hung up trying to get to leader, perhaps
+    - if have most of the upgrades, we should wait it out (ambush of tanks, and EMP defense)
+    
+    - don't build tanks early enough: see game 653.rms
+    - any archon needs to be able to call for attack mode..
+        - need to make sure there aren't lots of leader exchanges when all archons
+            are trying to call for attack mode
+
+- STRATEGIES to CONSIDER
+    - free roaming archons that launch EMPs
+        - they could get some successful EMPs from behind,
+            even if the opponent managed to kill one (which would try to run away)
+    - tank rush on a small map
+    - mobile EMP rush (all archons together)
+
+
+
+==========================================================
+- figure out what's going on with energon transfer
+    - it seems like the archons should have a lot more energon sitting on their person
+
+
+
+
+
+==========================================================
+
+- areas for improvement to our strategy:
+    - make EMP defense *good*
+    - make better decision about when to attack
+        - sometimes we walk past the enemy, sustaining damage,
+            because their Archons never get close enough to us for us to enter attack mode
+    - lower thresholds for building when we are in no immediate danger
+    - better inter-tank healing (maybe have them call for help)
+    
+    - we should be growing our army when we have more upgrades
+    - make good decision about when to attack nearby soldiers, versus their archon
+    - tanks should always be oportunistic in attacking (don't wait for a mode change)
+    - when tanks are in attack mode.. they should move around differently,
+        don't get so hung up trying to get to leader, perhaps
+    - if have most of the upgrades, we should wait it out (ambush of tanks, and EMP defense)
+    
+    - don't build tanks early enough: see game 653.rms
+    - any archon needs to be able to call for attack mode..
+        - need to make sure there aren't lots of leader exchanges when all archons
+            are trying to call for attack mode
+    - have a sacrificial archon ambsorb all the EMPs from a camping EMP thing
+    
+
+
+- SCARY STRATEGIES
+    - tank rush on a small map work here
+    - mobile EMP rush
+
+
+
+
+
+Lie down, or take a seat
+I have dark news
+remember... the article I showed you yesterday?
+It's true
+what I thought was true
+but they don't know
+
+
+
+
+
+- areas for improvement to our strategy:
+    - problem with path finding: see game 638.rms
+        - the leader should have switched, but got into a "back-and-forth" situation
+    - make better decision about when to attack
+        - sometimes we walk past the enemy, sustaining damage,
+            because their Archons never get close enough to us for us to enter attack mode
+    - lower thresholds for building when we are in no immediate danger
+    - better tank healing (maybe have them call for help)
+    
+    - have a sacrificial archon ambsorb all the EMPs from a camping EMP thing
+    - we should be growing our army when we have more upgrades
+    - make good decision about when to attack nearby soldiers, versus their archon
+    - tanks should always be oportunistic in attacking (don't wait for a mode change)
+    - when tanks are in attack mode.. they should move around differently,
+        don't get so hung up trying to get to leader, perhaps
+    - if have most of the upgrades, we should wait it out (ambush of tanks, and EMP defense)
+    
+    - don't build tanks early enough: see game 653.rms
+    - any archon needs to be able to call for attack mode..
+        - need to make sure there aren't lots of leader exchanges when all archons
+            are trying to call for attack mode
+    
+    - make EMP defense *good*
+
+
+
+
+
+
+- attack mode proposal:
+    - criterion for attack mode = 1 archon too close, or 4 soldiers too close, or 1 tank
+    - first, make any archon able to call for attack mode
+
+
+
+Intelligence:
+    - (probably) 4 archons in square iff stationary
+    - detonating an EMP is positive reinforcement to keep that up
+    - seeing a lot of enemy fighters if positive reinforcement for EMP defense
+
+
+
+Clever Things:
+    - scraficial archon
+    - emergent complexity wall
+    - rail-gun
+
+Dimensions:
+    1. Movement: Hunker down vs. Roam map together vs. Roam map apart
+        - Hunker:
+            - allows good defense (ambush)
+            - less upgrades
+        - Roam Together:
+            - might walk into ambush (need to avoid this)
+            - not as good defense
+            - more upgrades
+        - Roam apart:
+            - can collect more upgrades
+            - more susceptable to ambush (or any attack)
+            - could ambush enemy from both sides
+            - could send EMPs from both sides
+    2. Air: EMP offense vs EMP defense vs no Air-Force
+        - EMP offense
+            - might do EMP damage
+            - costs energy (less ground defense)
+        - EMP defense
+            - might be worthless
+            - costs energy (but perhaps less than EMP offense, could have larger ground force)
+            - could become offense
+    3. Ground: Tanks vs Soldiers
+        - Tanks:
+            - good focus fire
+            - can die from soldiers getting next to them
+        - Soldiers:
+            - cheap, easy, fast,
+            - pesky (can keep them coming)
+
+Response Dimensions:
+    1. Seek & Destroy vs. Upgrades
+    2. EMPs: kill EMPs vs. decrease their production vs. increase our production
+
+
+    
+
+
+- strategies:
+    - EMPs camped out
+    - roaming Archons with soldiers helping them out
+        - sometimes they would use EMPs
+        - sometimes grouped Archons, sometimes free roaming
+
+
+    - specific strategies:
+        - EMP 1:
+            - camped out
+            - send waves of scouts (that make an EMP)
+            - builds defense when we get too close
+            
+            
+                * dangers:
+                    - wave may be particularly hard to stop
+                    - we loose by not having much production (too many EMP hits)
+                    - we loose by attacking them, and loosing the battle
+                    
+                * Sacrificial Archon
+                    - absorbs EMPs
+                    - allows us to get enough upgrades
+                * Collect Upgrades Together
+                    - Have good EMP defense
+                    - don't attack enemy
+                    - collect upgrades
+            
+        - EMP 2:
+            - camped out
+            - sends stream of scouts (that make an EMP)
+            - builds defense when we get too close
+            
+                * dangers:
+                    - same as EMP 1
+            
+        - Upgrade
+            - send out Archons individually for upgrades (no army)
+            
+                * dangers:
+                    - they collect more upgrades than us
+                    
+                * Collect Upgrades Apart
+                    - Spread out and collect upgrades (to compete with collection
+                * Seek and Destroy (as a group)
+                    - go around in a group, but focus on killing enemy,
+                        as opposed to collecting upgrades
+                        
+        - Upgrade with little armies
+            - archons are individual, but have ground armies (of a tank, some soldiers)
+            
+                * dangers:
+                    - they get more upgrades
+                    - they might even kill us
+                    
+                * Seek and Destroy (as a group)
+                    - go around in a group, but focus on killing enemy,
+                        as opposed to collecting upgrades
+                    - with tanks (maybe a soldier?)
+                        
+                * Roaming EMP
+                    - roam as a group with an army
+                    - also produce EMPs
+                * Slow moving EMP force (with ground defense on demand)
+                
+        - Upgrade with little armies (and EMP defense)
+            - archons are individual, but have ground armies (of a tank, some soldiers, and SAMs, or other EMP defense)
+            
+                * dangers:
+                    - they get more upgrades
+                    - they might even kill us
+            
+                * Seek and Destroy (as a group)
+                
+        - Upgrade with little armies, and also some EMPs
+            - archons are individuall
+            - small groups of soldiers
+            - EMPs
+            
+                * dangers:
+                    - they get more upgrades
+                    - they might kill us
+                    - they might EMP us
+                    
+                * Seek and Destroy with Tanks and EMP defense (scout cloud)
+                
+                    
+        - Seek and Destroy with Tanks and EMPs
+            - ignore powerups, try to go after enemy
+            
+            
+                * collect upgrades with Tanks and EMP defense
+                    - grow the army
+                * collect upgrades (not too many) and set up ambush (with EMP defense)
+
+
+        - collect upgrades (not too many) and set up ambush (with EMP defense)
+        
+        
+                * collect more upgrades, somehow
+                * build bigger army (take advantage of not building air units)
+                
+        - collect upgrades (not too many) and set up ambush (with EMPs)
+        
+        
+                * collect more upgrades, somehow
+                * build bigger army (take advantage of not building air units)
+
+
+        - Soldier Army
+            - walk around with Archons grouped
+            - have lots of soldiers greedily attacking whoever they see
+            
+                
+            
+            
+        - Running Away
+            - free roaming Archons
+            - collecting upgrades
+            - running from battle
+        - Big Ambush
+            - camped out
+            - build lots of tanks
+            - wait for enemy to approach
+        - Roaming Ambush
+            - roaming (slowly)
+            - build lots of tanks (x8)
+            - wait for enemy
+        - Soldier Ambush
+            - camped out or raoming
+            - lots of soldiers
+        - Rail-gun EMP
+            - long line of scouts, all healing each other, EMP flys along it to increase range
+        - Emergent Complexity Wall
+            - wall of scouts, then wave with an EMP
+        - just EMPs
+            - send out completed EMPs as fast as possible
+        - EMP groups
+            - send out about 3-4 completed EMPs at a time (perhaps accompanies by scouts)
+        1. SAM defense
+            - lots of sams
+            - some ground defense
+        2. Roaming Armies
+            - little armies around each archon
+            - no air, so maybe 2 tanks, or a tank and 5 soldiers (each archon)
+        3. Circling Ambush
+            - roam independently, but try to circle around on all sides
+        4. Army Rush
+            - come to us as quickly as possible with a land force
+        5. EMP Rush
+            - walk toward us and do the campy EMP thing
+        6. Close Combat
+            - try to get their archons right next to ours
+
+
+
